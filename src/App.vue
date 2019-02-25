@@ -16,10 +16,10 @@
 
 <style lang="scss">
     hr{
-        height: 5px;
-        width: 150px;
-        background-color: black;
-        display: inline-block;
-        margin: 0;
+        height: 4px !important;
+        width: 80px !important;
+        background-color: black !important;
+        display: inline-block !important;
+        margin: 0 !important;
     }
 </style>

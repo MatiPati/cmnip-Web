@@ -4,7 +4,7 @@
         <h1 class="m-0">About</h1>
         <hr class="mb-2">
         <p>
-            One of our projects, checkout other!
+            Authors of this monstrosity!
         </p>
 
         <div class="row mt-4 mb-2">
