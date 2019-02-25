@@ -1,8 +1,8 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <router-link class="navbar-brand" to="/">Check My Name in Poland</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +22,10 @@
                                 Repos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="https://github.com/MatiPati" target="_blank" class="dropdown-item d-flex">
+                                <a href="https://github.com/MatiPati/cmnip-web" target="_blank" class="dropdown-item d-flex">
                                     Web repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon>
                                 </a>
-                                <a href="https://github.com/MatiPati" target="_blank" class="dropdown-item d-flex">
+                                <a href="https://github.com/MatiPati/cmnip-api" target="_blank" class="dropdown-item d-flex">
                                     API repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon>
                                 </a>
                             </div>
@@ -51,6 +51,12 @@
         width: 100%;
         border-bottom: 1px solid rgba(0, 0, 0, .1);
         z-index: 10000;
+
+        .navbar-brand{
+            @media screen and (max-width: 362px) {
+                font-size: 0.8rem;
+            }
+        }
 
         .dropdown-item{
             justify-content: flex-end;
