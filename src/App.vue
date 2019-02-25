@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <navbar></navbar>
-        <div class="container">
+        <navbar/>
+        <div class="container py-3">
             <router-view/>
         </div>
     </div>
@@ -15,5 +15,11 @@
 </script>
 
 <style lang="scss">
-
+    hr{
+        height: 5px;
+        width: 150px;
+        background-color: black;
+        display: inline-block;
+        margin: 0;
+    }
 </style>
