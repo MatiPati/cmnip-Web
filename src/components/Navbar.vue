@@ -16,6 +16,14 @@
                         <li class="nav-item">
                             <router-link to="/" class="nav-link">Home</router-link>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                More
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <router-link to="/mostused" class="dropdown-item">Most used names</router-link>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <router-link to="/about" class="nav-link">About</router-link>
                         </li>
