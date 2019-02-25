@@ -50,7 +50,7 @@
                 this.mostUsed.loading = true;
                 if(this.mostUsed.year > 2017) this.mostUsed.year = 2017;
                 if(this.mostUsed.year < 2000) this.mostUsed.year = 2000;
-                fetch('http://mvtthew.pl:11290/names?start=0&limit=1&year=' + this.mostUsed.year, {
+                fetch('https://mvtthew.pl:11290/names?start=0&limit=1&year=' + this.mostUsed.year, {
                     method: 'GET'
                 }).then(res => res.json()).then(data => {
                     this.mostUsed.name = data[0];
