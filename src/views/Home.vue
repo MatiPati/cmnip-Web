@@ -11,8 +11,14 @@
                 <hr class="mb-3">
 
                 <div class="card p-3">
-
                     <p class="font-weight-bold m-0">
+                        <box-icon name="chevron-right" size="xs"></box-icon> What is this site?
+                    </p>
+                    <p class="m-0 text-justify">
+                        Here you can check most used names in Poland, look at the graphs with compares names gives count and much more!
+                    </p>
+
+                    <p class="font-weight-bold m-0 mt-4">
                         <box-icon name="chevron-right" size="xs"></box-icon> Why this project exist?
                     </p>
                     <p class="m-0 text-justify">
@@ -25,7 +31,14 @@
                     <p class="m-0 text-justify">
                         We live in Poland and we want to find out where on rankings and graphs are our names!
                     </p>
+                </div>
 
+                <div class="card p-3 mt-3">
+                    <h5>
+                        Quick navigation
+                    </h5>
+                    <router-link to="/mostused"><box-icon name="link" size="xs"></box-icon> Most used names</router-link>
+                    <router-link to="/graph"><box-icon name="link" size="xs"></box-icon> Check name on graph</router-link>
                 </div>
 
             </div>
@@ -34,7 +47,7 @@
                 <small>
                     Only few of Polish names are visible on graph. You can check yours by clicking button bellow.
                 </small>
-                <router-link to="/graph" class="btn btn-outline-dark mt-1">Check name on graph</router-link>
+                <router-link to="/graph" class="btn btn-outline-dark mt-1">Check other names on graph</router-link>
             </div>
         </div>
     </div>
@@ -55,7 +68,7 @@
                 visibleNames: [],
                 chartOptions: {
                     title: {
-                        text: 'Polish names uses frequency'
+                        text: 'Polish names giving frequency'
                     },
                     plotOptions: {
                         series: {
