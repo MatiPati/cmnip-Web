@@ -57,8 +57,8 @@
                     <a href="https://dane.gov.pl/" target="_blank">https://dane.gov.pl <box-icon name="link-external" size="xs"></box-icon></a>
                 </p>
                 <p>
-                    Covered MIT Licence<br>
-                    MatiPati 2019
+                    Covered by MIT Licence<br>
+                    &copy; MatiPati 2019
                 </p>
             </div>
         </div>
