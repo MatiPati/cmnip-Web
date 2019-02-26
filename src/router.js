@@ -28,7 +28,7 @@ export default new Router({
         },
         {
             path: '/graph',
-            name: 'most used',
+            name: 'your name on graph',
             component: () => import('./views/CheckOnGraph.vue')
         }
     ]

@@ -2,15 +2,22 @@
     <div class="check-on-graph">
         <div class="row">
             <div class="col-lg-12">
-                <highcharts :options="chartOptions" style="width: 100%; height: 550px" v-show="graphVisible"></highcharts>
-                <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center" v-show="!graphVisible">
-                    <div class="text-center">
-                        <h1>
-                            First add name to display graph!
-                        </h1>
-                        <p>
-                            Input is under!
-                        </p>
+                <h1 class="mb-0">
+                    Check name on graph
+                </h1>
+                <hr class="mb-2">
+                <highcharts :options="chartOptions" style="width: 100%; height: 550px"
+                            v-show="graphVisible"></highcharts>
+                <div v-show="!graphVisible">
+                    <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center">
+                        <div class="text-center">
+                            <h1>
+                                Add name to display graph!
+                            </h1>
+                            <p>
+                                Input is under!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -22,6 +29,9 @@
                     <input class="form-control" v-model="newName" placeholder="Name..." @keyup.enter="addNameToGraph()">
                     <button class="btn btn-outline-dark" @click="addNameToGraph()">Add</button>
                 </div>
+                <small class="text-danger mb-0" v-show="error.visible">
+                    {{error.message}}
+                </small>
             </div>
         </div>
     </div>
@@ -40,6 +50,10 @@
                 nameIndex: 0,
                 visibleNames: [],
                 graphVisible: false,
+                error: {
+                    visible: false,
+                    message: '',
+                },
                 chartOptions: {
                     title: {
                         text: ''
@@ -81,33 +95,50 @@
                 fetch('https://mvtthew.pl:11290/name/' + name, {
                     method: 'GET'
                 }).then(res => res.json()).then(data => {
-                    // if (this.nameIndex === 0) {
-                    //     const years = Object.keys(data.years);
-                    //     years.forEach(year => {
-                    //         this.option.xAxis.data.push(year);
-                    //     });
-                    // }
-                    this.chartOptions.series.push(
-                        {
-                            name: name,
-                            data: [],
-                            cursor: 'pointer',
-                            marker: {
-                                symbol: 'circle',
-                            }
+
+                    this.showError(0);
+
+                    if ((typeof data) !== "string") {
+                        if (!this.graphVisible) {
+                            this.graphVisible = true;
                         }
-                    );
-                    const values = Object.values(data.years);
-                    values.forEach(name => {
-                        this.chartOptions.series[this.nameIndex].data.push(parseInt(name.uses));
-                    });
-                    this.visibleNames.push({
-                        name: name,
-                        index: this.nameIndex,
-                    });
-                    this.nameIndex++;
+
+                        this.chartOptions.series.push(
+                            {
+                                name: name,
+                                data: [],
+                                cursor: 'pointer',
+                                marker: {
+                                    symbol: 'circle',
+                                }
+                            }
+                        );
+                        const values = Object.values(data.years);
+                        values.forEach(name => {
+                            this.chartOptions.series[this.nameIndex].data.push(parseInt(name.uses));
+                        });
+                        this.visibleNames.push({
+                            name: name,
+                            index: this.nameIndex,
+                        });
+                        this.nameIndex++;
+
+                    } else {
+                        this.error.message = data;
+                        this.showError(1);
+                    }
                 });
             },
+            showError (state) {
+                if (state === 1) {
+                    this.error.visible = true;
+                    setTimeout( () => {
+                        this.showError(0);
+                    }, 4000);
+                } else if (state === 0) {
+                    this.error.visible = false;
+                }
+            }
         }
     }
 </script>
