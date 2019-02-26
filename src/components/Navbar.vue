@@ -65,7 +65,12 @@
 
         .navbar-brand{
             @media screen and (max-width: 362px) {
-                font-size: 0.8rem;
+                font-size: 0.86rem;
+                box-icon{
+                    width: 20px;
+                    height: 20px;
+                    bottom: -2px !important;
+                }
             }
         }
 
