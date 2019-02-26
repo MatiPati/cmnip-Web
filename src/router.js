@@ -25,6 +25,11 @@ export default new Router({
             path: '/mostused',
             name: 'most used',
             component: () => import('./views/MostUsedNames.vue')
+        },
+        {
+            path: '/graph',
+            name: 'most used',
+            component: () => import('./views/CheckOnGraph.vue')
         }
     ]
 });

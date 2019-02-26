@@ -1,19 +1,26 @@
 <template>
-    <div class="home">
+    <div class="check-on-graph">
         <div class="row">
-            <div class="col-lg-3">
-                <h1 class="m-0">
-                    CMNiN
-                </h1>
-                <hr class="mb-2">
-                <p>
-                    What I'm doing here?
-                </p>
+            <div class="col-lg-12">
+                <highcharts :options="chartOptions" style="width: 100%; height: 550px" v-show="graphVisible"></highcharts>
+                <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center" v-show="!graphVisible">
+                    <div class="text-center">
+                        <h1>
+                            First add name to display graph!
+                        </h1>
+                        <p>
+                            Input is under!
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-9">
-                <highcharts :options="chartOptions" style="width: 100%; height: 500px"></highcharts>
-                <div class="mt-3 text-right">
-                    <router-link to="/graph" class="btn btn-outline-dark">Check name on graph</router-link>
+            <div class="col-lg-6 ml-auto mt-2">
+                <p class="mb-1">
+                    Add name to graph here:
+                </p>
+                <div class="d-flex">
+                    <input class="form-control" v-model="newName" placeholder="Name..." @keyup.enter="addNameToGraph()">
+                    <button class="btn btn-outline-dark" @click="addNameToGraph()">Add</button>
                 </div>
             </div>
         </div>
@@ -21,21 +28,21 @@
 </template>
 
 <script>
-
     import {Chart} from 'highcharts-vue'
 
     export default {
-        components: {
-            highcharts: Chart
+        comments: {
+            Chart
         },
         data() {
             return {
                 newName: '',
                 nameIndex: 0,
                 visibleNames: [],
+                graphVisible: false,
                 chartOptions: {
                     title: {
-                        text: 'Name uses frequency'
+                        text: ''
                     },
                     plotOptions: {
                         series: {
@@ -58,32 +65,28 @@
                     credits: {
                         enabled: false
                     },
+                    noData: {},
                     series: []
                 }
             }
         },
         created() {
-            this.getData('Karolina');
-            setTimeout(() => {
-                this.getData('Patryk');
-            }, 2000);
-            setTimeout(() => {
-                this.getData('Gabriela');
-            }, 4000);
-            setTimeout(() => {
-                this.getData('Mateusz');
-            }, 6000);
-            setTimeout(() => {
-                this.getData('Paweł');
-            }, 8000);
         },
-
         methods: {
+            addNameToGraph() {
+                this.getData(this.newName.charAt(0).toUpperCase() + this.newName.slice(1));
+                this.newName = '';
+            },
             getData(name) {
                 fetch('https://mvtthew.pl:11290/name/' + name, {
                     method: 'GET'
                 }).then(res => res.json()).then(data => {
-
+                    // if (this.nameIndex === 0) {
+                    //     const years = Object.keys(data.years);
+                    //     years.forEach(year => {
+                    //         this.option.xAxis.data.push(year);
+                    //     });
+                    // }
                     this.chartOptions.series.push(
                         {
                             name: name,
@@ -94,19 +97,15 @@
                             }
                         }
                     );
-
                     const values = Object.values(data.years);
                     values.forEach(name => {
                         this.chartOptions.series[this.nameIndex].data.push(parseInt(name.uses));
                     });
-
                     this.visibleNames.push({
                         name: name,
                         index: this.nameIndex,
                     });
-
                     this.nameIndex++;
-
                 });
             },
         }
