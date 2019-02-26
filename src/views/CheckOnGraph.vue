@@ -41,6 +41,7 @@
     import {Chart} from 'highcharts-vue'
 
     export default {
+        name: 'CheckOnGraph',
         comments: {
             Chart
         },

@@ -58,6 +58,7 @@
     import {Chart} from 'highcharts-vue'
 
     export default {
+        name: 'Home',
         components: {
             highcharts: Chart
         },

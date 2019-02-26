@@ -58,7 +58,7 @@
                 </p>
                 <p>
                     Covered MIT Licence<br>
-                    &copy; MatiPati 2019
+                    MatiPati 2019
                 </p>
             </div>
         </div>
@@ -67,6 +67,10 @@
 </template>
 
 <script>
+
+    export default {
+        name: 'About',
+    }
 
 </script>
 
