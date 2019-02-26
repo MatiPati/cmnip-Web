@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import About from './views/About.vue'
+import MostUsedNames from './views/MostUsedNames.vue'
+import CheckOnGraph from './views/CheckOnGraph.vue'
 
 Vue.use(Router);
 
@@ -19,17 +22,17 @@ export default new Router({
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+            component: About
         },
         {
             path: '/mostused',
             name: 'most used',
-            component: () => import('./views/MostUsedNames.vue')
+            component: MostUsedNames
         },
         {
             path: '/graph',
             name: 'your name on graph',
-            component: () => import('./views/CheckOnGraph.vue')
+            component: CheckOnGraph
         }
     ]
 });
