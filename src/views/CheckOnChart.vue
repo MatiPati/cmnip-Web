@@ -23,7 +23,7 @@
                 </div>
                 <button class="btn btn-danger" @click="clearChart()">Clear chart</button>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3">
                 <p class="mb-1">
                     Add name to chart here:
                 </p>
