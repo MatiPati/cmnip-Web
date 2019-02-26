@@ -9,6 +9,11 @@
             </div>
             <div class="col-12 mt-3" v-show="!chartVisible">
                 <div class="row">
+                    <div class="col-12 mt-4">
+                        <p>
+                            Just type 2 names and compare them as you like!
+                        </p>
+                    </div>
                     <div class="col-5">
                         <div class="d-flex mt-2">
                             <input class="form-control" placeholder="Name 1" v-model="name1" @keyup="search(1)">
@@ -110,12 +115,12 @@
                         <div class="col-12 text-center">
                             <strong>{{index}}</strong>
                         </div>
-                        <div class="col-5 text-right">
+                        <div class="col-4 col-lg-5 text-right">
                             <p class="h4">
                                 {{compare.uses1}}
                             </p>
                         </div>
-                        <div class="col-2 text-center">
+                        <div class="col-4 col-lg-2 text-center">
                             <p v-if="compare.difference > 0" class="text-success">
                                 +{{compare.difference}} <box-icon name="chevron-up" size="sm" color="green"></box-icon>
                             </p>
@@ -123,7 +128,7 @@
                                 {{compare.difference}} <box-icon name="chevron-down" size="sm" color="red"></box-icon>
                             </p>
                         </div>
-                        <div class="col-5">
+                        <div class="col-4 col-lg-5">
                             <p class="h4">
                                 {{compare.uses2}}
                             </p>

@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h2>
-                            Developers team
+                            Developer team
                         </h2>
                         <a href="https://github.com/matipati/" class="d-flex" target="_blank">
                             MatiPati
