@@ -100,12 +100,12 @@
             },
             search() {
                 if (this.newName !== '') {
-                    fetch('https://mvtthew.pl:11290/search/' + this.newName, {
+                    fetch('https://mvtthew.pl:11290/search/' + this.newName + '?limit=10', {
                         method: 'GET'
                     }).then(res => res.json()).then(data => {
                         let helps = [];
                         data.forEach(item => {
-                            helps.push(item.name);
+                            helps.push(item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase());
                         });
                         this.searchHelper.helps = helps;
                     });
@@ -179,15 +179,13 @@
     .search-helper {
         position: relative;
         background-color: rgba(0, 0, 0, 0.01);
-        max-height: 34rem;
         width: 100%;
-        overflow-y: scroll;
         p {
-            padding: 0.2rem;
+            padding: 0.3rem 0.6rem;
             margin: 0;
             cursor: pointer;
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: rgba(0, 0, 0, 0.04);
             }
         }
     }
