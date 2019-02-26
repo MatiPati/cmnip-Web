@@ -14,14 +14,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link">Home</router-link>
+                            <router-link to="/" class="nav-item nav-link">Home</router-link>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                More
+                                Names
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <router-link to="/chart" class="dropdown-item">Check name on chart</router-link>
+                                <router-link to="/chart" class="dropdown-item">Custom name chart</router-link>
                                 <router-link to="/mostused" class="dropdown-item">Most used names</router-link>
                             </div>
                         </li>
@@ -30,14 +30,14 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Repos
+                                Source code
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a href="https://github.com/MatiPati/cmnip-web" target="_blank" class="dropdown-item d-flex">
-                                    Web repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon>
+                                    Web repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon> <small class="pl-1">Mvtthew</small>
                                 </a>
                                 <a href="https://github.com/MatiPati/cmnip-api" target="_blank" class="dropdown-item d-flex">
-                                    API repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon>
+                                    API repo <box-icon type="logo" name="github" size="sm" class="ml-1"></box-icon> <small class="pl-1">nerio2</small>
                                 </a>
                             </div>
                         </li>

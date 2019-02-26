@@ -6,22 +6,29 @@
                     Check name on chart
                 </h1>
                 <hr class="mb-2">
-                <highcharts :options="chartOptions" style="width: 100%; height: 550px"
+                <highcharts :options="chartOptions" style="width: 100%; height: 530px"
                             v-show="chartVisible" class="mt-3"></highcharts>
-                <div v-show="!chartVisible">
-                    <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center">
+                <div v-show="!chartVisible" class="mt-3">
+                    <div style="width: 100%; height: 530px" class="d-flex justify-content-center align-items-center">
                         <div class="text-center">
                             <h1>
-                                Add name to display chart!
+                                Chart is empty!<br>
+                                <small>Add name to display chart!</small>
                             </h1>
                             <p>
-                                Input is under!
+                                Input is bellow!
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 ml-auto mt-2">
+            <div class="col-lg-6 mt-2">
+                <p class="mb-1">
+                    Use chart to compare and visualize names uses count per years!
+                </p>
+                <button class="btn btn-danger" @click="clearChart()">Clear chart</button>
+            </div>
+            <div class="col-lg-6 mt-2">
                 <p class="mb-1">
                     Add name to chart here:
                 </p>
@@ -85,12 +92,15 @@
                 }
             }
         },
-        created() {
-        },
         methods: {
             addNameToChart() {
-                this.getData(this.newName.charAt(0).toUpperCase() + this.newName.slice(1));
+                this.getData(this.newName.charAt(0).toUpperCase() + this.newName.slice(1).toLowerCase());
                 this.newName = '';
+            },
+            clearChart() {
+                this.chartOptions.series = [];
+                this.nameIndex = 0;
+                this.chartVisible = false;
             },
             getData(name) {
                 fetch('https://mvtthew.pl:11290/name/' + name, {

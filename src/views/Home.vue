@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <h1 class="m-0">
-                    CMNiN
+                    CMNiP
                 </h1>
                 <p class="mb-1">
                     Check My Name in Poland
@@ -37,8 +37,8 @@
                     <h5>
                         Quick navigation
                     </h5>
+                    <router-link to="/chart"><box-icon name="link" size="xs"></box-icon> Custom name chart</router-link>
                     <router-link to="/mostused"><box-icon name="link" size="xs"></box-icon> Most used names</router-link>
-                    <router-link to="/chart"><box-icon name="link" size="xs"></box-icon> Check name on chart</router-link>
                 </div>
 
             </div>
@@ -47,7 +47,7 @@
                 <small>
                     Only few of Polish names are visible on chart. You can check yours by clicking button bellow.
                 </small>
-                <router-link to="/chart" class="btn btn-outline-dark mt-1">Check other names on chart</router-link>
+                <router-link to="/chart" class="btn btn-primary mt-1">Create name chart <box-icon name="chart" size="xs" color="white"></box-icon></router-link>
             </div>
         </div>
     </div>
