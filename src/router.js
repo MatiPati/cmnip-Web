@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import MostUsedNames from './views/MostUsedNames.vue'
-import CheckOnGraph from './views/CheckOnGraph.vue'
+import CheckOnChart from './views/CheckOnChart.vue'
 
 Vue.use(Router);
 
@@ -30,9 +30,9 @@ export default new Router({
             component: MostUsedNames
         },
         {
-            path: '/graph',
+            path: '/chart',
             name: 'your name on graph',
-            component: CheckOnGraph
+            component: CheckOnChart
         }
     ]
 });

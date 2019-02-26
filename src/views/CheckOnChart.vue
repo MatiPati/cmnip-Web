@@ -1,18 +1,18 @@
 <template>
-    <div class="check-on-graph">
+    <div class="check-on-chart">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="mb-0">
-                    Check name on graph
+                    Check name on chart
                 </h1>
                 <hr class="mb-2">
                 <highcharts :options="chartOptions" style="width: 100%; height: 550px"
-                            v-show="graphVisible" class="mt-3"></highcharts>
-                <div v-show="!graphVisible">
+                            v-show="chartVisible" class="mt-3"></highcharts>
+                <div v-show="!chartVisible">
                     <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center">
                         <div class="text-center">
                             <h1>
-                                Add name to display graph!
+                                Add name to display chart!
                             </h1>
                             <p>
                                 Input is under!
@@ -23,11 +23,11 @@
             </div>
             <div class="col-lg-6 ml-auto mt-2">
                 <p class="mb-1">
-                    Add name to graph here:
+                    Add name to chart here:
                 </p>
                 <div class="d-flex">
-                    <input class="form-control" v-model="newName" placeholder="Name..." @keyup.enter="addNameToGraph()">
-                    <button class="btn btn-outline-dark" @click="addNameToGraph()">Add</button>
+                    <input class="form-control" v-model="newName" placeholder="Name..." @keyup.enter="addNameToChart()">
+                    <button class="btn btn-outline-dark" @click="addNameToChart()">Add</button>
                 </div>
                 <small class="text-danger mb-0" v-show="error.visible">
                     {{error.message}}
@@ -41,7 +41,7 @@
     import {Chart} from 'highcharts-vue'
 
     export default {
-        name: 'CheckOnGraph',
+        name: 'CheckOnChart',
         comments: {
             Chart
         },
@@ -50,7 +50,7 @@
                 newName: '',
                 nameIndex: 0,
                 visibleNames: [],
-                graphVisible: false,
+                chartVisible: false,
                 error: {
                     visible: false,
                     message: '',
@@ -88,7 +88,7 @@
         created() {
         },
         methods: {
-            addNameToGraph() {
+            addNameToChart() {
                 this.getData(this.newName.charAt(0).toUpperCase() + this.newName.slice(1));
                 this.newName = '';
             },
@@ -100,8 +100,8 @@
                     this.showError(0);
 
                     if ((typeof data) !== "string") {
-                        if (!this.graphVisible) {
-                            this.graphVisible = true;
+                        if (!this.chartVisible) {
+                            this.chartVisible = true;
                         }
 
                         this.chartOptions.series.push(

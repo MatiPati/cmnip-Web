@@ -21,7 +21,7 @@
                                 More
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <router-link to="/graph" class="dropdown-item">Check name on graph</router-link>
+                                <router-link to="/chart" class="dropdown-item">Check name on chart</router-link>
                                 <router-link to="/mostused" class="dropdown-item">Most used names</router-link>
                             </div>
                         </li>

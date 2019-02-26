@@ -15,7 +15,7 @@
                         <box-icon name="chevron-right" size="xs"></box-icon> What is this site?
                     </p>
                     <p class="m-0 text-justify">
-                        Here you can check most used names in Poland, look at the graphs with compares names gives count and much more!
+                        Here you can check most used names in Poland, look at the charts with compares names gives count and much more!
                     </p>
 
                     <p class="font-weight-bold m-0 mt-4">
@@ -29,7 +29,7 @@
                         <box-icon name="chevron-right" size="xs"></box-icon> Why Poland?
                     </p>
                     <p class="m-0 text-justify">
-                        We live in Poland and we want to find out where on rankings and graphs are our names!
+                        We live in Poland and we want to find out where on rankings and charts our names are!
                     </p>
                 </div>
 
@@ -38,16 +38,16 @@
                         Quick navigation
                     </h5>
                     <router-link to="/mostused"><box-icon name="link" size="xs"></box-icon> Most used names</router-link>
-                    <router-link to="/graph"><box-icon name="link" size="xs"></box-icon> Check name on graph</router-link>
+                    <router-link to="/chart"><box-icon name="link" size="xs"></box-icon> Check name on chart</router-link>
                 </div>
 
             </div>
             <div class="col-lg-7">
                 <highcharts :options="chartOptions" style="width: 100%; height: 500px" class="mt-3"></highcharts>
                 <small>
-                    Only few of Polish names are visible on graph. You can check yours by clicking button bellow.
+                    Only few of Polish names are visible on chart. You can check yours by clicking button bellow.
                 </small>
-                <router-link to="/graph" class="btn btn-outline-dark mt-1">Check other names on graph</router-link>
+                <router-link to="/chart" class="btn btn-outline-dark mt-1">Check other names on chart</router-link>
             </div>
         </div>
     </div>
