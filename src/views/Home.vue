@@ -43,7 +43,7 @@
 
             </div>
             <div class="col-lg-7">
-                <highcharts :options="chartOptions" style="width: 100%; height: 500px"></highcharts>
+                <highcharts :options="chartOptions" style="width: 100%; height: 500px" class="mt-3"></highcharts>
                 <small>
                     Only few of Polish names are visible on graph. You can check yours by clicking button bellow.
                 </small>

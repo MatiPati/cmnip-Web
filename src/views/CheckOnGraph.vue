@@ -7,7 +7,7 @@
                 </h1>
                 <hr class="mb-2">
                 <highcharts :options="chartOptions" style="width: 100%; height: 550px"
-                            v-show="graphVisible"></highcharts>
+                            v-show="graphVisible" class="mt-3"></highcharts>
                 <div v-show="!graphVisible">
                     <div style="width: 100%; height: 550px" class="d-flex justify-content-center align-items-center">
                         <div class="text-center">
