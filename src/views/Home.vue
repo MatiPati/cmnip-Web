@@ -1,20 +1,40 @@
 <template>
     <div class="home">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-5">
                 <h1 class="m-0">
                     CMNiN
                 </h1>
-                <hr class="mb-2">
-                <p>
-                    What I'm doing here?
+                <p class="mb-1">
+                    Check My Name in Poland
                 </p>
-            </div>
-            <div class="col-lg-9">
-                <highcharts :options="chartOptions" style="width: 100%; height: 500px"></highcharts>
-                <div class="mt-3 text-right">
-                    <router-link to="/graph" class="btn btn-outline-dark">Check name on graph</router-link>
+                <hr class="mb-3">
+
+                <div class="card p-3">
+
+                    <p class="font-weight-bold m-0">
+                        <box-icon name="chevron-right" size="xs"></box-icon> Why this project exist?
+                    </p>
+                    <p class="m-0 text-justify">
+                        This small project aims to prove some students, there is time for school, all homework, and our aim - evolve our passions and talents!
+                    </p>
+
+                    <p class="font-weight-bold m-0 mt-4">
+                        <box-icon name="chevron-right" size="xs"></box-icon> Why Poland?
+                    </p>
+                    <p class="m-0 text-justify">
+                        We live in Poland and we want to find out where on rankings and graphs are our names!
+                    </p>
+
                 </div>
+
+            </div>
+            <div class="col-lg-7">
+                <highcharts :options="chartOptions" style="width: 100%; height: 500px"></highcharts>
+                <small>
+                    Only few of Polish names are visible on graph. You can check yours by clicking button bellow.
+                </small>
+                <router-link to="/graph" class="btn btn-outline-dark mt-1">Check name on graph</router-link>
             </div>
         </div>
     </div>
@@ -35,7 +55,7 @@
                 visibleNames: [],
                 chartOptions: {
                     title: {
-                        text: 'Name uses frequency'
+                        text: 'Polish names uses frequency'
                     },
                     plotOptions: {
                         series: {
@@ -76,6 +96,9 @@
             setTimeout(() => {
                 this.getData('Paweł');
             }, 8000);
+            setTimeout(() => {
+                this.getData('Jan');
+            }, 10000);
         },
 
         methods: {
