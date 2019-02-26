@@ -12,7 +12,12 @@
     "aos": "^3.0.0-beta.6",
     "bootstrap-vue": "^2.0.0-rc.13",
     "boxicons": "^1.9.1",
+    "chart.js": "^2.7.3",
+    "echarts": "^4.1.0",
+    "highcharts": "^7.0.3",
+    "highcharts-vue": "^1.2.0",
     "vue": "^2.6.6",
+    "vue-echarts": "^4.0.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

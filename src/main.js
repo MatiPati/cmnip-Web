@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import AOS from 'aos';
+import HighchartsVue from 'highcharts-vue'
 
 AOS.init();
 
@@ -13,7 +14,9 @@ new Vue({
   render: h => h(App)
 }).$mount('#app');
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
+
+Vue.use(HighchartsVue);
 
 Vue.use(BootstrapVue);
 
