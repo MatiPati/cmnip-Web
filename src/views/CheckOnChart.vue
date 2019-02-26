@@ -32,7 +32,7 @@
                            @keyup.enter="addNameToChart()">
                     <button class="btn btn-outline-dark" @click="addNameToChart()">Add</button>
                 </div>
-                <div class="search-helper">
+                <div class="search-helper" v-show="searchHelper.visible">
                     <p v-for="name in searchHelper.helps" @click="addNameToChartFromSearch(name)">
                         {{name}}
                     </p>
@@ -47,8 +47,13 @@
 
 <script>
 
+    import {Chart} from 'highcharts-vue'
+
     export default {
         name: 'CheckOnChart',
+        components: {
+            highcharts: Chart
+        },
         data() {
             return {
                 newName: '',
@@ -108,6 +113,7 @@
                             helps.push(item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase());
                         });
                         this.searchHelper.helps = helps;
+                        this.searchHelper.visible = true;
                     });
                 }
             },
@@ -115,19 +121,19 @@
                 this.getData(name);
                 this.newName = '';
                 this.searchHelper.helps = [];
+                this.searchHelper.visible = false;
             },
             clearChart() {
                 this.chartOptions.series = [];
                 this.nameIndex = 0;
                 this.chartVisible = false;
+                this.searchHelper.visible = false;
             },
             getData(name) {
                 if (this.newName !== '') {
                     fetch('https://mvtthew.pl:11290/name/' + name, {
                         method: 'GET'
                     }).then(res => res.json()).then(data => {
-
-                        this.showError(0);
 
                         if ((typeof data) !== "string") {
                             if (!this.chartVisible) {
@@ -166,7 +172,7 @@
                     this.error.visible = true;
                     setTimeout(() => {
                         this.showError(0);
-                    }, 4000);
+                    }, 6000);
                 } else if (state === 0) {
                     this.error.visible = false;
                 }

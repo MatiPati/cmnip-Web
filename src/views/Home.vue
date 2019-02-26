@@ -38,6 +38,7 @@
                         Quick navigation
                     </h5>
                     <router-link to="/chart"><box-icon name="link" size="xs"></box-icon> Custom name chart</router-link>
+                    <router-link to="/compare"><box-icon name="link" size="xs"></box-icon> Compare names</router-link>
                     <router-link to="/mostused"><box-icon name="link" size="xs"></box-icon> Most used names</router-link>
                 </div>
 
@@ -66,7 +67,6 @@
             return {
                 newName: '',
                 nameIndex: 0,
-                visibleNames: [],
                 chartOptions: {
                     title: {
                         text: 'Polish names giving frequency'
@@ -135,11 +135,6 @@
                     const values = Object.values(data.years);
                     values.forEach(name => {
                         this.chartOptions.series[this.nameIndex].data.push(parseInt(name.uses));
-                    });
-
-                    this.visibleNames.push({
-                        name: name,
-                        index: this.nameIndex,
                     });
 
                     this.nameIndex++;

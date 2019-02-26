@@ -22,6 +22,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <router-link to="/chart" class="dropdown-item">Custom name chart</router-link>
+                                <router-link to="/compare" class="dropdown-item">Compare names</router-link>
                                 <router-link to="/mostused" class="dropdown-item">Most used names</router-link>
                             </div>
                         </li>

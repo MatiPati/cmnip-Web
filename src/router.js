@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import MostUsedNames from './views/MostUsedNames.vue'
 import CheckOnChart from './views/CheckOnChart.vue'
+import CompareNames from './views/CompareNames.vue'
 
 Vue.use(Router);
 
@@ -33,6 +34,11 @@ export default new Router({
             path: '/chart',
             name: 'your name on graph',
             component: CheckOnChart
+        },
+        {
+            path: '/compare',
+            name: 'compare names',
+            component: CompareNames
         }
     ]
 });

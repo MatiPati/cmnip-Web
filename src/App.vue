@@ -15,8 +15,14 @@
 </script>
 
 <style lang="scss">
-    box-icon[size=xs]{
-        position: relative;
-        bottom: -1px;
+    box-icon{
+        &[size=xs] {
+            position: relative;
+            bottom: -1px;
+        }
+        &[size=sm]{
+            position: relative;
+            bottom: -3px;
+        }
     }
 </style>
