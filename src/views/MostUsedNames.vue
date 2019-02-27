@@ -33,6 +33,7 @@
 
 <script>
     export default {
+        name: 'MostUsedNames',
         data() {
             return {
                 mostUsed: {

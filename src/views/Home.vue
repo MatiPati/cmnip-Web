@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <h1 class="m-0">
-                    CMNiN
+                    CMNiP
                 </h1>
                 <p class="mb-1">
                     Check My Name in Poland
@@ -15,7 +15,7 @@
                         <box-icon name="chevron-right" size="xs"></box-icon> What is this site?
                     </p>
                     <p class="m-0 text-justify">
-                        Here you can check most used names in Poland, look at the graphs with compares names gives count and much more!
+                        Here you can check most used names in Poland, look at the charts with compares names gives count and much more!
                     </p>
 
                     <p class="font-weight-bold m-0 mt-4">
@@ -29,7 +29,7 @@
                         <box-icon name="chevron-right" size="xs"></box-icon> Why Poland?
                     </p>
                     <p class="m-0 text-justify">
-                        We live in Poland and we want to find out where on rankings and graphs are our names!
+                        We live in Poland and we want to find out where on rankings and charts our names are!
                     </p>
                 </div>
 
@@ -37,17 +37,18 @@
                     <h5>
                         Quick navigation
                     </h5>
+                    <router-link to="/chart"><box-icon name="link" size="xs"></box-icon> Custom name chart</router-link>
+                    <router-link to="/compare"><box-icon name="link" size="xs"></box-icon> Compare names</router-link>
                     <router-link to="/mostused"><box-icon name="link" size="xs"></box-icon> Most used names</router-link>
-                    <router-link to="/graph"><box-icon name="link" size="xs"></box-icon> Check name on graph</router-link>
                 </div>
 
             </div>
             <div class="col-lg-7">
-                <highcharts :options="chartOptions" style="width: 100%; height: 500px"></highcharts>
+                <highcharts :options="chartOptions" style="width: 100%; height: 500px" class="mt-3"></highcharts>
                 <small>
-                    Only few of Polish names are visible on graph. You can check yours by clicking button bellow.
+                    Only few of Polish names are visible on chart. You can check yours by clicking button bellow.
                 </small>
-                <router-link to="/graph" class="btn btn-outline-dark mt-1">Check other names on graph</router-link>
+                <router-link to="/chart" class="btn btn-primary mt-1">Create name chart <box-icon name="chart" size="xs" color="white"></box-icon></router-link>
             </div>
         </div>
     </div>
@@ -58,6 +59,7 @@
     import {Chart} from 'highcharts-vue'
 
     export default {
+        name: 'Home',
         components: {
             highcharts: Chart
         },
@@ -65,7 +67,6 @@
             return {
                 newName: '',
                 nameIndex: 0,
-                visibleNames: [],
                 chartOptions: {
                     title: {
                         text: 'Polish names giving frequency'
@@ -134,11 +135,6 @@
                     const values = Object.values(data.years);
                     values.forEach(name => {
                         this.chartOptions.series[this.nameIndex].data.push(parseInt(name.uses));
-                    });
-
-                    this.visibleNames.push({
-                        name: name,
-                        index: this.nameIndex,
                     });
 
                     this.nameIndex++;

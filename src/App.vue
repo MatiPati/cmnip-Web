@@ -15,11 +15,14 @@
 </script>
 
 <style lang="scss">
-    hr{
-        height: 4px !important;
-        width: 80px !important;
-        background-color: black !important;
-        display: inline-block !important;
-        margin: 0 !important;
+    box-icon{
+        &[size=xs] {
+            position: relative;
+            bottom: -1px;
+        }
+        &[size=sm]{
+            position: relative;
+            bottom: -3px;
+        }
     }
 </style>

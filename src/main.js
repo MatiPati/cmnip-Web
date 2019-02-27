@@ -9,9 +9,9 @@ import HighchartsVue from 'highcharts-vue'
 AOS.init();
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app');
 
 Vue.config.productionTip = false
